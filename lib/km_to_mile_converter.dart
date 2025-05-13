@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class KmToMileConverterScreen extends StatefulWidget {
+class KmToMileConverterScreen extends StatefulWidget {  // экран для конвертации км в мили
   const KmToMileConverterScreen({Key? key}) : super(key: key);
 
   @override
@@ -9,13 +9,13 @@ class KmToMileConverterScreen extends StatefulWidget {
 
 class _KmToMileConverterScreenState extends State<KmToMileConverterScreen> {
   final TextEditingController _kmController = TextEditingController();
-  double? _miles;
+  double? _miles;    // переменная для хранения результата конвертации
 
-  void _convert() {
-    final km = double.tryParse(_kmController.text);
-    if (km != null) {
+  void _convert() {    // метод для конвертации
+    final km = double.tryParse(_kmController.text);  // преобразование введенного значения в число
+    if (km != null) {   // если удалось преобразовать в число
       setState(() {
-        _miles = km * 0.621371;
+        _miles = km * 0.621371;    // конвертация
       });
     }
   }
@@ -28,9 +28,9 @@ class _KmToMileConverterScreenState extends State<KmToMileConverterScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),  // отступы
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,  // выравнивание по левому краю
           children: [
             const Text(
               'Количество километров:',
@@ -39,30 +39,30 @@ class _KmToMileConverterScreenState extends State<KmToMileConverterScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),   // отступ между текстом и полем ввода
             TextField(
               controller: _kmController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.number,  // возможно ввести только числа
               decoration: const InputDecoration(
-                hintText: 'Введите число...',
-                border: OutlineInputBorder(),
+                hintText: 'Введите число...',   // "подсказка" в поле ввода :)
+                border: OutlineInputBorder(),   // рамка
               ),
-              style: const TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),  // текст в поле ввода
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20),  // отступ между полем ввода и кнопкой
             SizedBox(
-              child: ElevatedButton(
-                onPressed: _convert,
+              child: ElevatedButton(   // кнопка для конвертации
+                onPressed: _convert,  // вызов метода конвертации при нажатии
                 child: const Text(
-                  'Конвертировать в мили',
-                  style: TextStyle(fontSize: 18),
+                  'Конвертировать в мили',   // текст на кнопке
+                  style: TextStyle(fontSize: 18),  // размер текста на кнопке
                 ),
               ),
             ),
-            const SizedBox(height: 24),
-            if (_miles != null)
+            const SizedBox(height: 24),   // отступ после кнопки
+            if (_miles != null)     // опказ реультата, если конверт. завершена
               Text(
-                'Результат: ${_miles!.toStringAsFixed(3)} миль',
+                'Результат: ${_miles!.toStringAsFixed(3)} миль',  // 3 знака после запятой
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
