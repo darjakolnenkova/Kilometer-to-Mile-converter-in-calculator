@@ -63,10 +63,10 @@ class _KmToMileConverterScreenState extends State<KmToMileConverterScreen> {
             if (_miles != null)     // опказ реультата, если конверт. завершена
               Text(
                 'Результат: ${_miles!.toStringAsFixed(3)} миль',  // 3 знака после запятой
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                  ),
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
           ],
         ),
